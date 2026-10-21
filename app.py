@@ -8,10 +8,19 @@ import numpy as np
 st.set_page_config(layout="wide", page_title="ATB - Dashboard Ventas Resumen")
 
 st.markdown("""
+    # --- 1. ESTILOS VISUALES CORREGIDOS (Barra lateral azul con letras de selectores legibles) ---
+st.markdown("""
     <style>
         stApp { background-color: #f0f4f8; }
         [data-testid="stSidebar"] { background-color: #0d47a1 !important; }
-        [data-testid="stSidebar"] * { color: white !important; }
+        /* Pintar títulos y subtítulos de la barra en blanco */
+        [data-testid="stSidebar"] h1, [data-testid="stSidebar"] h2, [data-testid="stSidebar"] h3, [data-testid="stSidebar"] p, [data-testid="stSidebar"] label { 
+            color: white !important; 
+        }
+        /* Asegurar que el texto dentro de los menús desplegables se quede en negro para ser legible */
+        div[data-baseweb="select"] * {
+            color: #333333 !important;
+        }
         .metric-card {
             background-color: #1565c0; color: white; border-radius: 8px;
             padding: 15px; text-align: center; box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
