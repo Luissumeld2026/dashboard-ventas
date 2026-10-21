@@ -7,30 +7,27 @@ import numpy as np
 # 1. CONFIGURACIÓN DE LA PÁGINA (Tema Oscuro / Azul Corporativo)
 st.set_page_config(layout="wide", page_title="ATB - Dashboard Ventas Resumen")
 
-st.markdown("""
-    # --- 1. ESTILOS VISUALES CORREGIDOS (Barra lateral azul con letras de selectores legibles) ---
+# --- ESTILOS VISUALES CORREGIDOS SIN ERRORES DE SINTAXIS ---
 st.markdown("""
     <style>
         stApp { background-color: #f0f4f8; }
         [data-testid="stSidebar"] { background-color: #0d47a1 !important; }
-        /* Pintar títulos y subtítulos de la barra en blanco */
         [data-testid="stSidebar"] h1, [data-testid="stSidebar"] h2, [data-testid="stSidebar"] h3, [data-testid="stSidebar"] p, [data-testid="stSidebar"] label { 
             color: white !important; 
         }
-        /* Asegurar que el texto dentro de los menús desplegables se quede en negro para ser legible */
         div[data-baseweb="select"] * {
             color: #333333 !important;
         }
         .metric-card {
             background-color: #1565c0; color: white; border-radius: 8px;
-            padding: 15px; text-align: center; box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+            padding: 15px; text-align: center;
         }
         .metric-title { font-size: 14px; font-weight: bold; opacity: 0.9; }
         .metric-value { font-size: 22px; font-weight: bold; margin-top: 5px; }
     </style>
 """, unsafe_allow_html=True)
 
-# 2. CARGA Y ASIGNACIÓN INTELIGENTE DE COLUMNAS SIMULADAS
+# 2. CARGA Y ASIGNACIÓN INTELIGENTE DE COLUMNAS
 @st.cache_data
 def cargar_y_mapear_datos():
     df = pd.read_excel("VentasRetail_ClaseMCP.xlsx")
@@ -95,7 +92,6 @@ try:
         st.markdown(f"<b>Periodo:</b> {filtro_mes} {filtro_ano}", unsafe_allow_html=True)
         
     with col_gauge:
-        # CAMBIO CLAVE E INMUNE: Se eliminó el formato diccionario para evitar fallas de sintaxis
         fig_gauge = go.Figure(go.Indicator(
             mode = "gauge+number",
             value = ventas_actuales,
