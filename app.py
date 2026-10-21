@@ -55,7 +55,6 @@ try:
 
     # 3. INTERFAZ Y FILTROS (Barra Lateral Superior)
     with st.sidebar:
-        st.image("https://flaticon.com", width=60)
         st.title("Dashboard Ventas")
         st.subheader("Resumen Corporativo")
         st.markdown("---")
@@ -87,6 +86,7 @@ try:
         st.markdown(f"<b>Periodo:</b> {filtro_mes} {filtro_ano}", unsafe_allow_html=True)
         
     with col_gauge:
+        # CORREGIDO: Se agregaron los valores numéricos correspondientes al dominio [0, 1]
         fig_gauge = go.Figure(go.Indicator(
             mode = "gauge+number",
             value = ventas_actuales,
