@@ -86,12 +86,11 @@ try:
         st.markdown(f"<b>Periodo:</b> {filtro_mes} {filtro_ano}", unsafe_allow_html=True)
         
     with col_gauge:
-        # ¡AQUÍ QUEDÓ CORREGIDO CON LOS NÚMEROS COMPLETOS!
+        # CAMBIO CLAVE E INMUNE: Se eliminó el formato diccionario para evitar fallas de sintaxis
         fig_gauge = go.Figure(go.Indicator(
             mode = "gauge+number",
             value = ventas_actuales,
             number = {'prefix': "S/ ", 'valueformat': ",.0f", 'font': {'size': 20}},
-            domain = {'x':, 'y': [0, 1]},
             title = {'text': f"META: S/ {meta_comercial:,}", 'font': {'size': 12, 'weight': 'bold'}},
             gauge = {
                 'axis': {'range': [0, meta_comercial if meta_comercial > 0 else 100000]},
@@ -167,4 +166,4 @@ try:
         st.plotly_chart(fig_can2, use_container_width=True)
 
 except Exception as e:
-    st.error(f"Error: {e}")
+    st.error(f"Error general: {e}")
