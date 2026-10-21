@@ -86,7 +86,7 @@ try:
         st.markdown(f"<b>Periodo:</b> {filtro_mes} {filtro_ano}", unsafe_allow_html=True)
         
     with col_gauge:
-        # AQUÍ QUEDÓ CORREGIDO: 'x': [0, 1]
+        # ¡AQUÍ QUEDÓ CORREGIDO CON LOS NÚMEROS COMPLETOS!
         fig_gauge = go.Figure(go.Indicator(
             mode = "gauge+number",
             value = ventas_actuales,
@@ -167,4 +167,4 @@ try:
         st.plotly_chart(fig_can2, use_container_width=True)
 
 except Exception as e:
-    st.error(f"Error高度: {e}")
+    st.error(f"Error: {e}")
